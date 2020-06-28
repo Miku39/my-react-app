@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # trueにしないとコンテナ起動後にすぐコンテナが停止してしまう 
+    stdin_open: true
+    volumes:
+     - ./:/usr/src/app
+    command: sh -c "yarn start"
+    ports:
+     - "3000:3000"
